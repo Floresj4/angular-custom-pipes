@@ -19,10 +19,14 @@
   </div>
 
   <div class="row">
+    <form [formGroup]="shortenForm">
+
     <div class="col-xs-2">
       <label for="limitInput">Limit</label>
       <input type="number"
              id="limitInput"
+             name="limitInput"
+             formControlName="limitInput"
              class="form-control"
              [(ngModel)]="limit">
     </div>
@@ -30,12 +34,16 @@
         <label for="shortenText">Input text</label>
         <textarea
           id="shortenText"
+          name="shortenText"
+          formControlName="shortenText"
           class="form-control"
           row="4"
           cols="20"
           [(ngModel)]="shortenMsg">
             </textarea>
     </div>
+
+    </form>
   </div>
 
   <div class="row">
