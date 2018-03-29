@@ -11,23 +11,37 @@
       <div class="col-xs-12">
         <h4>Shorten</h4>
         <p>
-          A custom shortening pipe truncating text longer then 30 characters.  The textarea below binds
-          to the variable <span class="code">shortenMsg</span> and displays in the following container.
-          <code [innerHTML]="getShortenCmd()"></code>
+          A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow
+          the length to be configured.  The textarea below binds to the variable <span class="code">shortenMsg</span>
+          and displays in the following container. <code [innerHTML]="getShortenCmd()"></code>
         </p>
+      </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-2">
+      <label for="limitInput">Limit</label>
+      <input type="number"
+             id="limitInput"
+             class="form-control"
+             [(ngModel)]="limit">
+    </div>
+    <div class="col-xs-10">
+        <label for="shortenText">Input text</label>
         <textarea
           id="shortenText"
           class="form-control"
           row="4"
           cols="20"
           [(ngModel)]="shortenMsg">
-        </textarea>
-      </div>
+            </textarea>
+    </div>
+  </div>
 
+  <div class="row">
     <div class="col-xs-12">
-      <h5>Output</h5>
-      <p>{{shortenMsg | shorten }} &nbsp;</p>
+      <h5>Output <small>limit: {{limit}}</small></h5>
+      <p>{{shortenMsg | shorten:limit }} &nbsp;</p>
     </div>
   </div>
 

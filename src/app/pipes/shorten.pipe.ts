@@ -7,12 +7,15 @@ export class ShortenPipe implements PipeTransform {
 
   defaultLength = 30;
 
-  transform(value: any, ...args: any[]) {
+  transform(value: any, limit: number) {
     const length = value !== undefined
       ? value.length : 0;
 
-    return length > this.defaultLength
-      ? value.substr(0, this.defaultLength) + '...'
+    limit = limit === undefined
+      ? this.defaultLength : limit;
+
+    return length > limit
+      ? value.substr(0, limit) + '...'
         : value;
   }
 }
