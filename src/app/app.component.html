@@ -49,7 +49,10 @@
   <div class="row">
     <div class="col-xs-12">
       <h5>Output <small>limit: {{limit}}</small></h5>
-      <p>{{shortenMsg | shorten:limit }} &nbsp;</p>
+      <p *ngIf="shortenForm.valid; else invalidForm">{{shortenMsg | shorten:limit }} &nbsp;</p>
+      <ng-template #invalidForm>
+        <div class="alert alert-danger" role="alert">Shorten limit must be a positive, non-zero number.</div>
+      </ng-template>
     </div>
   </div>
 
