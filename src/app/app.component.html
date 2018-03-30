@@ -56,6 +56,38 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Filter</h4>
+      <p>
+        A custom filter pipe<code [innerHTML]="getFilterCmd()"></code>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <form [formGroup]="filterForm">
+
+      <div class="col-xs-3">
+        <label for="filterText">Filter</label>
+        <input type="text"
+            id="filterText"
+            name="filterText"
+            formControlName="filterText"
+            class="form-control">
+      </div>
+
+      <div class="col-xs-9">
+        <label>Filter Data</label>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let d of filterData">
+            {{ d.name }}, {{ d.age }}</li>
+        </ul>
+      </div>
+
+    </form>
+  </div>
+
   <div class="row" style="margin-top:25px">
     <div class="col-xs-12">
       <div class='list-group'>
