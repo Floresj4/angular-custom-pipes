@@ -8,21 +8,29 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  shortenMsg : string;
+  shortenMsg: string;
+  filterText: string;
+  filterProp: string;
   limit: number;
 
   shortenForm: FormGroup;
   filterForm: FormGroup;
 
   filterData: any[];
+  filterProperties: string[];
 
   ngOnInit() {
     this.limit = 30;
 
     this.filterData = [
-      { name: 'John Doe', age: 27 },
-      { name: 'Angela Doe', age: 33 },
-      { name: 'Molly Doe', age: 24 },
+      { name: 'John Doe', age: 27, occupation: 'Teacher' },
+      { name: 'Angela Doe', age: 33, occupation: 'Engineer' },
+      { name: 'Molly Doe', age: 24, occupation: 'Student' },
+      { name: 'Patrick Fidgit', age: 24, occupation: 'Engineer' },
+    ];
+
+    this.filterProperties = [
+      'Name', 'Age', 'Occupation'
     ];
 
     this.shortenForm = new FormGroup({
@@ -31,7 +39,8 @@ export class AppComponent implements OnInit {
     });
 
     this.filterForm = new FormGroup({
-      'filterText': new FormControl(null)
+      'filterText': new FormControl(null),
+      'filterProp': new FormControl(null)
     });
   }
 
@@ -40,6 +49,6 @@ export class AppComponent implements OnInit {
   }
 
   getFilterCmd() {
-    return '{{filterList}}';
+    return '*ngFor="let i of items | filter:filterText:propName';
   }
 }
