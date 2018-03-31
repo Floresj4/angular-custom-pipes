@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
     this.filterProperties = [
       'Name', 'Age', 'Occupation'
     ];
+    this.filterProp = this.filterProperties[0];
 
     this.shortenForm = new FormGroup({
       'limitInput': new FormControl(this.limit, Validators.min(1)),
