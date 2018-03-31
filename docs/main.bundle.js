@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div class=\"page-header\">\n        <h3>Angular <small>Custom Pipes</small></h3>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <h4>Shorten</h4>\n        <p>\n          A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow\n          the length to be configured.  The textarea below binds to the variable <span class=\"code\">shortenMsg</span>\n          and displays in the following container. <code [innerHTML]=\"getShortenCmd()\"></code>\n        </p>\n      </div>\n  </div>\n\n  <div class=\"row\">\n    <form [formGroup]=\"shortenForm\">\n\n    <div class=\"col-xs-3\">\n      <label for=\"limitInput\">Limit</label>\n      <input type=\"number\"\n             id=\"limitInput\"\n             name=\"limitInput\"\n             formControlName=\"limitInput\"\n             class=\"form-control\"\n             [(ngModel)]=\"limit\">\n    </div>\n    <div class=\"col-xs-9\">\n        <label for=\"shortenText\">Input text</label>\n        <textarea\n          id=\"shortenText\"\n          name=\"shortenText\"\n          formControlName=\"shortenText\"\n          class=\"form-control\"\n          row=\"4\"\n          cols=\"20\"\n          [(ngModel)]=\"shortenMsg\">\n            </textarea>\n    </div>\n\n    </form>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <h5>Output <small>limit: {{limit}}</small></h5>\n      <p *ngIf=\"shortenForm.valid; else invalidForm\">{{shortenMsg | shorten:limit }} &nbsp;</p>\n      <ng-template #invalidForm>\n        <div class=\"alert alert-danger\" role=\"alert\">Shorten limit must be a positive, non-zero number.</div>\n      </ng-template>\n    </div>\n  </div>\n\n  <div class=\"row\" style=\"margin-top:25px\">\n    <div class=\"col-xs-12\">\n      <div class='list-group'>\n        <a class='list-group-item' href='https://floresj4.github.io/'>\n          <span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io</a>\n        <a class='list-group-item' href='https://github.com/Floresj4/angular-custom-pipes'>\n          <span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-custom-pipes</a>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <div class=\"page-header\">\n        <h3>Angular <small>Custom Pipes</small></h3>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"row\">\n      <div class=\"col-xs-12\">\n        <h4>Shorten</h4>\n        <p>\n          A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow\n          the length to be configured.  The textarea below binds to the variable <span class=\"code\">shortenMsg</span>\n          and displays in the following container. <code [innerHTML]=\"getShortenCmd()\"></code>\n        </p>\n      </div>\n  </div>\n\n  <div class=\"row\">\n    <form [formGroup]=\"shortenForm\">\n\n    <div class=\"col-xs-3\">\n      <label for=\"limitInput\">Limit</label>\n      <input type=\"number\"\n             id=\"limitInput\"\n             name=\"limitInput\"\n             formControlName=\"limitInput\"\n             class=\"form-control\"\n             [(ngModel)]=\"limit\">\n    </div>\n    <div class=\"col-xs-9\">\n        <label for=\"shortenText\">Input text</label>\n        <textarea\n          id=\"shortenText\"\n          name=\"shortenText\"\n          formControlName=\"shortenText\"\n          class=\"form-control\"\n          row=\"4\"\n          cols=\"20\"\n          [(ngModel)]=\"shortenMsg\">\n            </textarea>\n    </div>\n\n    </form>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <h5>Output <small>limit: {{limit}}</small></h5>\n      <p *ngIf=\"shortenForm.valid; else invalidForm\">{{shortenMsg | shorten:limit }} &nbsp;</p>\n      <ng-template #invalidForm>\n        <div class=\"alert alert-danger\" role=\"alert\">Shorten limit must be a positive, non-zero number.</div>\n      </ng-template>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-xs-12\">\n      <h4>Filter</h4>\n      <p>\n        A custom filter pipe... <br/> <code [innerHTML]=\"getFilterCmd()\"></code>\n      </p>\n    </div>\n  </div>\n\n  <div class=\"row\">\n    <form [formGroup]=\"filterForm\">\n\n      <div class=\"col-xs-3\">\n        <div class=\"form-group\">\n          <label for=\"filterText\">Filter</label>\n          <input type=\"text\"\n              id=\"filterText\"\n              name=\"filterText\"\n              [(ngModel)]=\"filterText\"\n              formControlName=\"filterText\"\n              class=\"form-control\">\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"filterProp\">Property</label>\n          <select class=\"form-control\"\n            id=\"filterProp\"\n            name=\"filterProp\"\n            [(ngModel)]=\"filterProp\"\n            formControlName=\"filterProp\">\n            <option *ngFor=\"let p of filterProperties\">{{p}}</option>\n          </select>\n        </div>\n      </div>\n\n      <div class=\"col-xs-9\">\n        <label>Filter Data</label>\n        <ul class=\"list-group\">\n          <li class=\"list-group-item\" *ngFor=\"let d of filterData | filter:filterText:filterProp\">\n            {{ d.name }}, {{ d.age }}, <span class=\"label label-default\">{{ d.occupation }}</span></li>\n        </ul>\n      </div>\n\n    </form>\n  </div>\n\n  <div class=\"row\" style=\"margin-top:25px\">\n    <div class=\"col-xs-12\">\n      <div class='list-group'>\n        <a class='list-group-item' href='https://floresj4.github.io/'>\n          <span class='glyphicon glyphicon-home'></span> &nbsp; floresj4.github.io</a>\n        <a class='list-group-item' href='https://github.com/Floresj4/angular-custom-pipes'>\n          <span class='glyphicon glyphicon-console'></span> &nbsp; https://github.com/Floresj4/angular-custom-pipes</a>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -62,13 +62,30 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         this.limit = 30;
+        this.filterData = [
+            { name: 'John Doe', age: 27, occupation: 'Teacher' },
+            { name: 'Angela Doe', age: 33, occupation: 'Engineer' },
+            { name: 'Molly Doe', age: 24, occupation: 'Student' },
+            { name: 'Patrick Fidgit', age: 24, occupation: 'Engineer' },
+        ];
+        this.filterProperties = [
+            'Name', 'Age', 'Occupation'
+        ];
+        this.filterProp = this.filterProperties[0];
         this.shortenForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
             'limitInput': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](this.limit, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].min(1)),
             'shortenText': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null)
         });
+        this.filterForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            'filterText': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null),
+            'filterProp': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null)
+        });
     };
     AppComponent.prototype.getShortenCmd = function () {
         return '{{shortenMsg | shorten:limit}}';
+    };
+    AppComponent.prototype.getFilterCmd = function () {
+        return '*ngFor="let i of items | filter:filterText:propName';
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -94,12 +111,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_shorten_pipe__ = __webpack_require__("../../../../../src/app/pipes/shorten.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_filter_pipe__ = __webpack_require__("../../../../../src/app/pipes/filter.pipe.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -112,7 +131,8 @@ var AppModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__pipes_shorten_pipe__["a" /* ShortenPipe */]
+                __WEBPACK_IMPORTED_MODULE_4__pipes_shorten_pipe__["a" /* ShortenPipe */],
+                __WEBPACK_IMPORTED_MODULE_5__pipes_filter_pipe__["a" /* FilterPipe */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -124,6 +144,50 @@ var AppModule = (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pipes/filter.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FilterPipe = (function () {
+    function FilterPipe() {
+    }
+    FilterPipe.prototype.transform = function (value, filterString, propName) {
+        if (value.length === 0 || filterString === undefined || filterString === '') {
+            return value;
+        }
+        if (propName !== undefined) {
+            propName = propName.toLowerCase();
+        }
+        var results = [];
+        for (var _i = 0, value_1 = value; _i < value_1.length; _i++) {
+            var item = value_1[_i];
+            if (item[propName].toLowerCase() === filterString.toLowerCase()) {
+                results.push(item);
+            }
+        }
+        return results;
+    };
+    FilterPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Pipe */])({
+            name: 'filter'
+        })
+    ], FilterPipe);
+    return FilterPipe;
 }());
 
 
