@@ -105,12 +105,12 @@
   <form [formGroup]="filterFormAdd">
     <div class="row">
 
-      <div class="col-xs-3">
+      <div class="col-xs-4">
         <label for="nameField">Name</label>
         <input type="text"
           id="nameField"
           name="nameField"
-          formControlName="nameField"
+          formControlName="name"
           placeholder="First and last..."
           class="form-control"
           required>
@@ -121,7 +121,7 @@
         <input type="number"
           id="ageField"
           name="ageField"
-          formControlName="ageField"
+          formControlName="age"
           class="form-control"
           required>
       </div>
@@ -131,13 +131,13 @@
         <input type="text"
           id="occupationField"
           name="occupataionField"
-          formControlName="occupationField"
+          formControlName="occupation"
           placeholder="Job title..."
           class="form-control"
           required>
       </div>
 
-      <div class="col-xs-3">
+      <div class="col-xs-2">
         <button type="button"
           class="btn btn-primary label-adjust"
           (click)="onAddData()">Add</button>

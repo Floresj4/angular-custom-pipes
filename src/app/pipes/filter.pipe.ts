@@ -1,7 +1,8 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
 
@@ -11,15 +12,24 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
 
-    // adjust the case for property lookuip
+    // adjust the case for property lookup
     if(propName !== undefined) {
       propName = propName.toLowerCase();
     }
 
+    if(filterString !== undefined) {
+      filterString = filterString.toLowerCase();
+    }
+
     const results = [];
     for(const item of value) {
+
+      // compare values as strings for simplicity
+      const itemValue = item[propName].toString()
+        .toLowerCase();
+
       // use a contains approach to filter
-      if(item[propName].toLowerCase().indexOf(filterString.toLowerCase()) > -1) {
+      if(itemValue.indexOf(filterString) > -1) {
         results.push(item);
       }
     }

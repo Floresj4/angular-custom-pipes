@@ -46,9 +46,9 @@ export class AppComponent implements OnInit {
     });
 
     this.filterFormAdd = new FormGroup({
-      'nameField': new FormControl(null),
-      'ageField': new FormControl(null, Validators.min(1)),
-      'occupationField': new FormControl(null)
+      'name': new FormControl(null),
+      'age': new FormControl(null, Validators.min(1)),
+      'occupation': new FormControl(null)
     });
   }
 
@@ -61,6 +61,9 @@ export class AppComponent implements OnInit {
   }
 
   onAddData() {
-
+    if(this.filterFormAdd.valid) {
+      this.filterData.push(this.filterFormAdd.value);
+      this.filterFormAdd.reset();
+    }
   }
 }
