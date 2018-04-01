@@ -7,6 +7,6 @@ input.ng-invalid.ng-touched {
 }
 
 .filter-data-overflow {
-  height: 210px;
+  max-height: 210px;
   overflow: auto;
 }
