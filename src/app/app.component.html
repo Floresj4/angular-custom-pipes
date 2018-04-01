@@ -13,7 +13,7 @@
         <p>
           A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow
           the length to be configured.  The textarea below binds to the variable <span class="code">shortenMsg</span>
-          and displays in the following container. <code [innerHTML]="getShortenCmd()"></code>
+          and displays in the following container. <br/> <code [innerHTML]="getShortenCmd()"></code>
         </p>
       </div>
   </div>
@@ -60,7 +60,9 @@
     <div class="col-xs-12">
       <h4>Filter</h4>
       <p>
-        A custom filter pipe... <br/> <code [innerHTML]="getFilterCmd()"></code>
+        A custom filter pipe for collections allowing users to specify the text to filter along with the property name of a
+        Javascript object to filter against.
+        <br/> <code [innerHTML]="getFilterCmd()"></code>
       </p>
     </div>
   </div>
