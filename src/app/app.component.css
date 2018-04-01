@@ -5,3 +5,8 @@ input.ng-invalid.ng-touched {
 .label-adjust {
   margin-top: 24px;
 }
+
+.filter-data-overflow {
+  height: 210px;
+  overflow: auto;
+}
