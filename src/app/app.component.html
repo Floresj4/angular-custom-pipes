@@ -105,6 +105,43 @@
   <form [formGroup]="filterFormAdd">
     <div class="row">
 
+      <div class="col-xs-3">
+        <label for="nameField">Name</label>
+        <input type="text"
+          id="nameField"
+          name="nameField"
+          formControlName="nameField"
+          placeholder="First and last..."
+          class="form-control"
+          required>
+      </div>
+
+      <div class="col-xs-3">
+        <label for="ageField">Age</label>
+        <input type="number"
+          id="ageField"
+          name="ageField"
+          formControlName="ageField"
+          class="form-control"
+          required>
+      </div>
+
+      <div class="col-xs-3">
+        <label for="occupationField">Occupation</label>
+        <input type="text"
+          id="occupationField"
+          name="occupataionField"
+          formControlName="occupationField"
+          placeholder="Job title..."
+          class="form-control"
+          required>
+      </div>
+
+      <div class="col-xs-3">
+        <button type="button"
+          class="btn btn-primary label-adjust"
+          (click)="onAddData()">Add</button>
+      </div>
     </div>
   </form>
 

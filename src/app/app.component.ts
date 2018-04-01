@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
   shortenForm: FormGroup;
   filterForm: FormGroup;
+  filterFormAdd: FormGroup;
 
   filterData: any[];
   filterProperties: string[];
@@ -43,6 +44,12 @@ export class AppComponent implements OnInit {
       'filterText': new FormControl(null),
       'filterProp': new FormControl(null)
     });
+
+    this.filterFormAdd = new FormGroup({
+      'nameField': new FormControl(null),
+      'ageField': new FormControl(null, Validators.min(1)),
+      'occupationField': new FormControl(null)
+    });
   }
 
   getShortenCmd() {
@@ -51,5 +58,9 @@ export class AppComponent implements OnInit {
 
   getFilterCmd() {
     return '*ngFor="let i of items | filter:filterText:propName';
+  }
+
+  onAddData() {
+
   }
 }
