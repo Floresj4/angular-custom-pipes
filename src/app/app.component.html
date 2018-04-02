@@ -7,67 +7,71 @@
     </div>
   </div>
 
-  <div class="row">
-      <div class="col-xs-12">
-        <h4>Shorten</h4>
-        <p>
-          A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow
-          the length to be configured.  The textarea below binds to the variable <span class="code">shortenMsg</span>
-          and displays in the following container. <br/> <code [innerHTML]="getShortenCmd()"></code>
-        </p>
+  <form [formGroup]="shortenForm">
+
+    <div class="row">
+        <div class="col-xs-12">
+          <h4>Shorten</h4>
+          <p>
+            A custom shortening pipe truncating text longer then 30 characters, but also parameterized to allow
+            the length to be configured.  The textarea below binds to the variable <span class="code">shortenMsg</span>
+            and displays in the following container. <br/> <code [innerHTML]="getShortenCmd()"></code>
+          </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-3">
+        <label for="limitInput">Limit</label>
+        <input type="number"
+               id="limitInput"
+               name="limitInput"
+               formControlName="limitInput"
+               class="form-control"
+               [(ngModel)]="limit">
       </div>
-  </div>
+      <div class="col-xs-9">
+          <label for="shortenText">Input text</label>
+          <textarea
+            id="shortenText"
+            name="shortenText"
+            formControlName="shortenText"
+            class="form-control"
+            row="4"
+            cols="20"
+            [(ngModel)]="shortenMsg">
+              </textarea>
+      </div>
 
-  <div class="row">
-    <form [formGroup]="shortenForm">
-
-    <div class="col-xs-3">
-      <label for="limitInput">Limit</label>
-      <input type="number"
-             id="limitInput"
-             name="limitInput"
-             formControlName="limitInput"
-             class="form-control"
-             [(ngModel)]="limit">
-    </div>
-    <div class="col-xs-9">
-        <label for="shortenText">Input text</label>
-        <textarea
-          id="shortenText"
-          name="shortenText"
-          formControlName="shortenText"
-          class="form-control"
-          row="4"
-          cols="20"
-          [(ngModel)]="shortenMsg">
-            </textarea>
     </div>
 
-    </form>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <h5>Output <small>limit: {{limit}}</small></h5>
-      <p *ngIf="shortenForm.valid; else invalidForm">{{shortenMsg | shorten:limit }} &nbsp;</p>
-      <ng-template #invalidForm>
-        <div class="alert alert-danger" role="alert">Shorten limit must be a positive, non-zero number.</div>
-      </ng-template>
+    <div class="row">
+      <div class="col-xs-12">
+        <h5>Output <small>limit: {{limit}}</small></h5>
+        <p *ngIf="shortenForm.valid; else invalidForm">{{shortenMsg | shorten:limit }} &nbsp;</p>
+        <ng-template #invalidForm>
+          <div class="alert alert-danger" role="alert">Shorten limit must be a positive, non-zero number.</div>
+        </ng-template>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <h4>Filter</h4>
-      <p>
-        A custom filter pipe for collections allowing users to specify the text to filter along with the property name of a
-        Javascript object to filter against.
-        <br/> <code [innerHTML]="getFilterCmd()"></code>
-      </p>
-    </div>
-  </div>
+  </form>
 
   <form [formGroup]="filterForm">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Filter</h4>
+        <p>
+          A custom filter pipe for collections allowing users to specify the text to filter along with the property name of a
+          Javascript object to filter against.
+          <br/> <code [innerHTML]="getFilterCmd()"></code>
+        </p>
+      </div>
+    </div>
+
+
     <div class="row">
         <div class="col-xs-3">
           <div class="form-group">
