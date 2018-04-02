@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ShortenPipe} from './pipes/shorten.pipe';
 import {FilterPipe} from './pipes/filter.pipe';
+import {ReversePipe} from './pipes/reverse.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

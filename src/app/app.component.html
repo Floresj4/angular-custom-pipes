@@ -58,6 +58,38 @@
 
   </form>
 
+  <hr/>
+
+  <form [formGroup]="reverseForm">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4>Reverse</h4>
+        <p>A custom filter for reversing strings. <br/>
+        <code [innerHTML]="getReverseCmd()"></code></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <label for="reverseText">Input text</label>
+        <textarea
+          id="reverseText"
+          name="reverseText"
+          [(ngModel)]="reverseText"
+          formControlName="reverseText"
+          rows="4"
+          class="form-control"></textarea>
+      </div>
+
+      <div class="row">
+        <h5>Output</h5>
+        <p>{{reverseText | reverse }}</p>
+      </div>
+    </div>
+  </form>
+
+  <hr/>
+
   <form [formGroup]="filterForm">
 
     <div class="row">
@@ -148,6 +180,8 @@
       </div>
     </div>
   </form>
+
+  <hr/>
 
   <div class="row" style="margin-top:25px">
     <div class="col-xs-12">

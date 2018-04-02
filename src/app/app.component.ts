@@ -11,11 +11,13 @@ export class AppComponent implements OnInit {
   shortenMsg: string;
   filterText: string;
   filterProp: string;
+  reverseText: string;
   limit: number;
 
   shortenForm: FormGroup;
   filterForm: FormGroup;
   filterFormAdd: FormGroup;
+  reverseForm: FormGroup;
 
   filterData: any[];
   filterProperties: string[];
@@ -50,6 +52,10 @@ export class AppComponent implements OnInit {
       'age': new FormControl(null, Validators.min(1)),
       'occupation': new FormControl(null)
     });
+
+    this.reverseForm = new FormGroup({
+      'reverseText': new FormControl(null)
+    });
   }
 
   getShortenCmd() {
@@ -58,6 +64,10 @@ export class AppComponent implements OnInit {
 
   getFilterCmd() {
     return '*ngFor="let i of items | filter:filterText:propName';
+  }
+
+  getReverseCmd() {
+    return '{{reverseMsg | reverse}}';
   }
 
   onAddData() {
